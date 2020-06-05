@@ -307,6 +307,8 @@ func GetStats(fd int, clear bool) map[string]interface{} {
 		},
 		"send": map[string]interface{}{
 			"packets":              mon.pktSent,
+			"packetsACK":           mon.pktRecvACK,
+			"packetsNAK":           mon.pktRecvNAK,
 			"packetsLost":          mon.pktSndLoss,
 			"packetsDropped":       mon.pktSndDrop,
 			"packetsRetransmitted": mon.pktRetrans,
@@ -316,6 +318,8 @@ func GetStats(fd int, clear bool) map[string]interface{} {
 		},
 		"recv": map[string]interface{}{
 			"packets":              mon.pktRecv,
+			"packetsACK":           mon.pktSentACK,
+			"packetsNAK":           mon.pktSentNAK,
 			"packetsLost":          mon.pktRcvLoss,
 			"packetsDropped":       mon.pktRcvDrop,
 			"packetsRetransmitted": mon.pktRcvRetrans,
